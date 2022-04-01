@@ -18,13 +18,20 @@ type myState = {
 };
 
 class ProductsGridItem extends React.Component<myProps, myState> {
+  handleSelectProduct = (item: Product) => {
+    console.log(item);
+  };
   render() {
     const { _product } = this.props;
     const newProducts = this.state;
     console.log(_product);
 
     return _product.map((item, index) => (
-      <div key={index} className='product-grid-item'>
+      <div
+        key={index}
+        className='product-grid-item'
+        onClick={() => this.handleSelectProduct(item)}
+      >
         <div className='product-grid-item-frame'>
           <img
             className='product-grid-item-img'

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './products-grid.component.css';
+
 import {
   Product,
   Products,
@@ -42,9 +44,10 @@ class ProductsGrid extends React.Component<myProps, myState> {
     console.log(allCategory[0].products);
 
     return (
-      <div className='products-grid'>
+      <div className='products-grid-page'>
+        <h1 className='products-grid-category'>Category Name</h1>
         {allCategory.map((item, index) => (
-          <div key={index}>
+          <div key={index} className='products-grid'>
             <ProductsGridItem _product={item.products} />
           </div>
         ))}

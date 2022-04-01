@@ -5,6 +5,7 @@ import { ApolloProvider } from '@apollo/client';
 import Header from '../header/header.component';
 import Home from '../../pages/home/home.page';
 import Products from '../../pages/products/products.page';
+import SingleProduct from '../../pages/single-product/single-product.page';
 
 import '../../common/styles';
 import './app.component.css';
@@ -12,21 +13,14 @@ import './app.component.css';
 import client from '../../common/apollo-client';
 
 type myProps = {
-  message: string;
+  to: string;
 };
 
 type myState = {
-  count: number;
+  to: string;
 };
 
 class App extends React.Component {
-  //   state: myState = {
-  //     count: 0,
-  //   };
-
-  //   props: myProps = {
-  //     message: 'Hello there',
-  //   };
   render() {
     return (
       <ApolloProvider client={client}>
@@ -35,6 +29,7 @@ class App extends React.Component {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/products' element={<Products />} />
+            <Route path='/products/:productId' element={<SingleProduct />} />
           </Routes>
         </Router>
       </ApolloProvider>

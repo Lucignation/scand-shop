@@ -3,11 +3,14 @@ import { gql, ApolloClient } from '@apollo/client';
 
 import ProductsGrid from '../../components/products-grid/products-grid.component';
 
-import { Product, Products } from '../../common/interfaces/products.interface';
+import {
+  IProduct,
+  IProducts,
+} from '../../common/interfaces/products.interface';
 import client from '../../common/apollo-client';
 
 type myState = {
-  products: Array<Products>;
+  products: Array<IProducts>;
   loading: boolean;
 };
 
@@ -52,7 +55,7 @@ class Home extends React.Component<{}, myState> {
   componentWillUnmount() {
     // this.setState({ ...this.state, products: [] });
   }
-  products: Product[] = [
+  products: IProduct[] = [
     {
       id: '1',
       name: 'New T-Shirt',
@@ -72,9 +75,9 @@ class Home extends React.Component<{}, myState> {
     // const _products = useGetProduct();
     // console.log(this.res)
     // const { product } = this.state;
-    console.log(this.state);
+    // console.log(this.state);
     const resData = this.state;
-    console.log(resData?.products);
+    // console.log(resData?.products);
     return (
       <>
         {resData?.products === null || resData?.loading === false ? (

@@ -21,6 +21,14 @@
   top: 0px;
   border-radius: 0px;
   padding: 16px;
+  cursor: pointer;
+  position: relative;
+}
+
+.selected-icon {
+  position: absolute;
+  bottom: 80px;
+  right: 25px;
 }
 
 .product-grid-item:hover {

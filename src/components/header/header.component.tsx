@@ -17,7 +17,7 @@ class Header extends React.Component<myProps, {}> {
       <header>
         <nav>
           <ul className='header-nav-group'>
-            <div className='header-nav-items right-nav'>
+            <div className='header-nav-items left-nav'>
               <li className='header-nav-item'>
                 <NavLink
                   to='/'
@@ -54,7 +54,7 @@ class Header extends React.Component<myProps, {}> {
                 <img src={Logo} alt='logo' />
               </NavLink>
             </li>
-            <div className='header-nav-items'>
+            <div className='header-nav-items right-nav'>
               <li className='header-nav-item'>
                 <p className='header-nav-current'>
                   $

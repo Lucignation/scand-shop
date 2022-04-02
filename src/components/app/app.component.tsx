@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
 
 import Header from '../header/header.component';
+import Footer from '../footer/footer.component';
 import Home from '../../pages/home/home.page';
 import Products from '../../pages/products/products.page';
 import SingleProduct from '../../pages/single-product/single-product.page';
@@ -31,6 +32,7 @@ class App extends React.Component {
             <Route path='/products' element={<Products />} />
             <Route path='/products/:productId' element={<SingleProduct />} />
           </Routes>
+          <Footer />
         </Router>
       </ApolloProvider>
     );

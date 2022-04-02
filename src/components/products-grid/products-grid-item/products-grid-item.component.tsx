@@ -1,36 +1,53 @@
 import React from 'react';
 
 import {
-  Product,
-  Products,
-  ProductCategory,
+  IProduct,
+  IProducts,
+  IProductCategory,
 } from '../../../common/interfaces/products.interface';
 
 import './products-grid-item.component.css';
 
+import cartCircle from '../../../assets/img/cart-circle.svg';
+
 type myProps = {
   // product: Product;
-  _product: Array<ProductCategory>;
+  _product: Array<IProductCategory>;
 };
 
 type myState = {
-  products: Array<Product>;
+  products: Array<IProduct>;
 };
 
 class ProductsGridItem extends React.Component<myProps, myState> {
-  handleSelectProduct = (item: Product) => {
-    console.log(item);
+  state: myState = {
+    products: [],
+  };
+
+  handleSelectProduct = (item: IProduct, index: number) => {
+    if (this.state.products.includes(item)) {
+      this.setState(() => ({
+        ...this.state,
+        products: this.state.products.filter((i) => i.id !== item.id),
+      }));
+    } else {
+      this.setState(() => ({
+        ...this.state,
+        products: [...this.state.products, item],
+      }));
+    }
   };
   render() {
+    // this.setState({ products: [], isSelected: false, selectedId: 0 });
     const { _product } = this.props;
     const newProducts = this.state;
-    console.log(_product);
+    console.log(this.state);
 
     return _product.map((item, index) => (
       <div
         key={index}
         className='product-grid-item'
-        onClick={() => this.handleSelectProduct(item)}
+        onClick={() => this.handleSelectProduct(item, index)}
       >
         <div className='product-grid-item-frame'>
           <img
@@ -44,6 +61,11 @@ class ProductsGridItem extends React.Component<myProps, myState> {
           {item.prices[0].currency.symbol}
           {item.prices[0].amount}
         </h4>
+        {this.state.products.includes(item) && (
+          <div className='selected-icon'>
+            <img src={cartCircle} alt='item selected' />
+          </div>
+        )}
       </div>
     ));
   }

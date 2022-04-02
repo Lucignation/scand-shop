@@ -1,35 +1,35 @@
-export interface Product {
+export interface IProduct {
   id: string;
   name: string;
   brand: string;
   inStock: boolean;
   gallery: string[];
   category: string;
-  prices: Price[];
+  prices: IPrice[];
   description: string;
 }
 
-export interface Products {
-  products: ProductCategory[];
+export interface IProducts {
+  products: IProductCategory[];
 }
 
-export interface ProductCategory {
+export interface IProductCategory {
   id: string;
   name: string;
   brand: string;
   inStock: boolean;
   gallery: string[];
   category: string;
-  prices: Price[];
+  prices: IPrice[];
   description: string;
 }
 
-export interface Price {
+export interface IPrice {
   amount: number;
-  currency: Currency;
+  currency: ICurrency;
 }
 
-export interface Currency {
+export interface ICurrency {
   label?: string;
   symbol?: string;
 }

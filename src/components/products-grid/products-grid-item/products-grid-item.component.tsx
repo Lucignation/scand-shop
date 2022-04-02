@@ -30,7 +30,7 @@ class ProductsGridItem extends React.Component<myProps, myState> {
         ...this.state,
         products: this.state.products.filter((i) => i.id !== item.id),
       }));
-    } else {
+    } else if (!item.inStock) {
       this.setState(() => ({
         ...this.state,
         products: [...this.state.products, item],
@@ -41,14 +41,23 @@ class ProductsGridItem extends React.Component<myProps, myState> {
     // this.setState({ products: [], isSelected: false, selectedId: 0 });
     const { _product } = this.props;
     const newProducts = this.state;
-    console.log(this.state);
+    console.log(_product);
 
     return _product.map((item, index) => (
       <div
         key={index}
-        className='product-grid-item'
+        className={
+          item.inStock
+            ? 'product-grid-item out-of-stock-frame'
+            : 'product-grid-item'
+        }
         onClick={() => this.handleSelectProduct(item, index)}
       >
+        {item.inStock && (
+          <div className='out-of-stock'>
+            <h1>OUT OF STOCK</h1>
+          </div>
+        )}
         <div className='product-grid-item-frame'>
           <img
             className='product-grid-item-img'
@@ -61,6 +70,7 @@ class ProductsGridItem extends React.Component<myProps, myState> {
           {item.prices[0].currency.symbol}
           {item.prices[0].amount}
         </h4>
+
         {this.state.products.includes(item) && (
           <div className='selected-icon'>
             <img src={cartCircle} alt='item selected' />

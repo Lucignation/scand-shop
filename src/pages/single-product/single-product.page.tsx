@@ -12,13 +12,20 @@ type myProps = {
 type myState = {
   amount: number;
   symbol: string;
+  productImg: string;
 };
 
 class SingleProduct extends React.Component<myProps, myState> {
   state: myState = {
     amount: this.props.products.product.prices[0]?.amount,
     symbol: this.props.products.product.prices[0]?.currency.symbol,
+    productImg: '',
   };
+
+  handleSwitchImage(pix: string, index: number): void {
+    console.log(pix);
+    this.setState({ ...this.state, productImg: pix });
+  }
   render() {
     console.log(this.state);
     console.log(this.props.products.product.prices[0].amount);
@@ -34,6 +41,7 @@ class SingleProduct extends React.Component<myProps, myState> {
                     src={pix}
                     alt={product.name}
                     className='product-images'
+                    onClick={() => this.handleSwitchImage(pix, index)}
                   />
                 </div>
               ))}
@@ -41,7 +49,11 @@ class SingleProduct extends React.Component<myProps, myState> {
 
             <div className='main-image-column'>
               <img
-                src={product.gallery[0]}
+                src={
+                  this.state.productImg
+                    ? this.state.productImg
+                    : product.gallery[0]
+                }
                 alt={product.name}
                 className='product-image-single'
               />

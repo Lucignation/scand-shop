@@ -25,6 +25,10 @@
   position: relative;
 }
 
+.product-link {
+  text-decoration: none;
+}
+
 .selected-icon {
   position: absolute;
   bottom: 80px;

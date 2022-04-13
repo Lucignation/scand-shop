@@ -1,7 +1,9 @@
 import React from 'react';
 import { gql, ApolloClient } from '@apollo/client';
+import { connect } from 'react-redux';
 
 import ProductsGrid from '../../components/products-grid/products-grid.component';
+import { setProducts } from '../../store/actions';
 
 import {
   IProduct,
@@ -14,7 +16,11 @@ type myState = {
   loading: boolean;
 };
 
-class Home extends React.Component<{}, myState> {
+type myProps = {
+  setProducts: any;
+};
+
+class Home extends React.Component<myProps, myState> {
   componentDidMount() {
     this.getProducts();
   }
@@ -50,6 +56,7 @@ class Home extends React.Component<{}, myState> {
     const { loading, data, networkStatus } = res;
 
     this.setState(() => ({ products: data.categories, loading: loading }));
+    this.props.setProducts(data.categories);
   }
 
   componentWillUnmount() {
@@ -90,4 +97,4 @@ class Home extends React.Component<{}, myState> {
   }
 }
 
-export default Home;
+export default connect(null, { setProducts })(Home);

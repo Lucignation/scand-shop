@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { combineReducers } from 'redux';
 
 import {
   ActionTypes,
@@ -10,7 +10,7 @@ import {
   GET_CURRENCIES,
   SET_CURRENCY,
 } from './actions';
-import { Store, ICurrency } from './types';
+import { Store, ICurrency, IProduct, IPrice } from './types';
 
 const initialState: Store = {
   products: [],
@@ -33,13 +33,13 @@ function productsReducer(state: Store = initialState, action: ActionTypes) {
     case SET_PRODUCT:
       return {
         ...state,
-        product: setProduct(action.payload),
+        product: action.payload,
       };
 
     case SET_PRODUCTS:
       return {
         ...state,
-        products: setProducts(action.payload),
+        products: action.payload,
       };
 
     case GET_CURRENCIES:
@@ -58,6 +58,15 @@ function productsReducer(state: Store = initialState, action: ActionTypes) {
   }
 }
 
-// const store = createStore(productsReducer);
+const rootReducer = combineReducers({
+  product: productsReducer,
+});
+
+export default rootReducer;
+
+// const store = createStore<IRootState, any, any, any>(
+//   productsReducer,
+//   composeWithDevTools(applyMiddleware(thunk))
+// );
 
 // export default store;

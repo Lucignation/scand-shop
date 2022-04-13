@@ -1,0 +1,133 @@
+.single-product-grid-item {
+  width: 100%;
+  /* padding: 15px; */
+  display: grid;
+  grid-template-columns: 20% 50% 20%;
+}
+
+.product-images-frame {
+  /* width: 87.61px; */
+  /* height: 87.61px; */
+  /* height: 80px; */
+  width: 100%;
+
+  overflow: hidden;
+}
+
+.product-images {
+  height: 180px;
+  width: 179px;
+  /* left: 100px;
+  top: 160px; */
+  border-radius: 0px;
+}
+
+.main-image-column {
+  width: 1364.03px;
+  height: 659.59px;
+  overflow: hidden;
+}
+
+.product-image-single {
+  height: 659.59px;
+}
+
+.product-title {
+  font-family: Raleway;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.product-subtitle {
+  font-family: Raleway;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.product-sizes {
+  display: flex;
+  justify-content: space-between;
+  /* margin-left: -30px; */
+}
+
+.product-size {
+  width: 63px;
+  height: 45px;
+  left: 1079px;
+  padding-top: 12px;
+  border: 1px solid #1d1f22;
+  box-sizing: border-box;
+  margin-right: 12px;
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.product-size:hover {
+  border: 1px solid #a6a6a6;
+  color: #a6a6a6;
+}
+
+.product-size-title,
+.product-price-title {
+  font-family: Roboto Condensed;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.product-price-single {
+  font-family: Raleway;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.product-add-cart {
+  font-family: Raleway;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #ffffff;
+
+  /* height: 52px;
+  width: 292px;
+  left: 929px; */
+  margin-top: 23px;
+  border-radius: 0px;
+  padding: 16px 32px 16px 32px;
+  background-color: #5ece7b;
+  cursor: pointer;
+}
+
+.product-description {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  /* height: 103px; */
+  width: 292px;
+  left: 929px;
+  top: 570px;
+  border-radius: nullpx;
+}

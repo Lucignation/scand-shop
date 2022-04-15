@@ -45,7 +45,7 @@ function productsReducer(state: Store = initialState, action: ActionTypes) {
     case GET_CURRENCIES:
       return {
         ...state,
-        currencies: getCurrencies(action.payload),
+        currencies: action.payload,
       };
 
     case SET_CURRENCY:

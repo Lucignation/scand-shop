@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import { RouteComponentProps } from 'react-router-dom';
-import { setProduct } from '../../../store/actions';
+import { setProduct, getCurrencies } from '../../../store/actions';
 
 import { Store } from '../../../store/types';
 
@@ -20,6 +20,7 @@ type myProps = {
   // product: Product;
   _product: Array<IProductCategory>;
   setProduct: any;
+  getCurrencies: any;
   // history: string;
 };
 
@@ -49,6 +50,7 @@ class ProductsGridItem extends React.Component<myProps, myState> {
   handleSingleProduct = (item: IProduct) => {
     console.log(item);
     this.props.setProduct(item);
+    this.props.getCurrencies(item.prices);
     // this.props.history.push({ pathname: `/products/${item.id}`, state: item });
   };
   render() {
@@ -104,4 +106,6 @@ const mapPropsToState = (state: Store) => ({
   products: state.products,
 });
 
-export default connect(mapPropsToState, { setProduct })(ProductsGridItem);
+export default connect(mapPropsToState, { setProduct, getCurrencies })(
+  ProductsGridItem
+);

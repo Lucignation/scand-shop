@@ -1,0 +1,23 @@
+.cart-item-top {
+  display: grid;
+  grid-template-columns: 40% 15% 40%;
+  grid-gap: 1%;
+}
+
+.cart-item-img {
+  width: 121px;
+  height: 190px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.cart-item-img img {
+  width: 121px;
+}
+
+.cart-total,
+.cart-btns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5%;
+}

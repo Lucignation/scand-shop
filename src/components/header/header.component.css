@@ -1,9 +1,51 @@
-.header-nav-group,
+/* .header-nav-group,
 .header-nav-items,
 .header-nav-current {
   display: flex;
   justify-content: space-around;
   list-style: none;
+} */
+
+.header-nav-group {
+  display: grid;
+  grid-template-columns: 40% 15% 40%;
+  list-style: none;
+  /* background-color: red; */
+  font-family: Raleway;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: 0em;
+}
+
+.left-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* margin-top: 22%; */
+}
+
+.right-nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.nav-currency {
+  margin-top: 22%;
+  cursor: pointer;
+}
+
+.left-nav {
+  width: 70%;
+}
+
+.right-nav {
+  width: 30%;
+  padding-left: 82%;
+}
+
+.logo {
+  /* background: red; */
+  text-align: center;
 }
 
 .header-nav-current img {
@@ -12,10 +54,12 @@
 
 .header-nav-current {
   position: relative;
+  width: 100%;
 }
 
 .header-nav-item {
   margin-right: 17%;
+  margin-top: 7%;
 }
 
 .header-nav-item:last-child {
@@ -24,12 +68,6 @@
 
 .left-nav {
   margin-top: 1%;
-}
-
-.header-nav-group {
-}
-
-.header-nav-group-active {
 }
 
 .header-nav-group a {
@@ -66,6 +104,10 @@
   cursor: pointer;
 }
 
+.currency-active {
+  background: #eeeeee;
+}
+
 .currencies {
   display: grid;
   grid-template-rows: auto;
@@ -73,8 +115,15 @@
   background-color: #fff;
   padding: 7px;
   text-align: center;
-  padding-top: 0px !important;
+  padding-top: 12% !important;
   top: 30px;
+  width: 114px;
+  font-family: Raleway;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: 0em;
+  margin-left: -56%;
 }
 
 .hide-currency {
@@ -83,4 +132,18 @@
 
 .show-currency {
   display: block;
+}
+
+.cart {
+  position: relative;
+}
+.cart-count {
+  position: absolute;
+  background: #000;
+  color: #fff;
+  top: -16px;
+  right: 55%;
+  padding: 1px 11px;
+  border-radius: 50px;
+  font-size: 14px;
 }

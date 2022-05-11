@@ -24,4 +24,6 @@ export interface Store {
   product: IProduct;
   currency: ICurrency;
   currencies: ICurrency[];
+  cart: IProduct[];
+  total: number;
 }

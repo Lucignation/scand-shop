@@ -9,6 +9,8 @@ import {
   setProduct,
   GET_CURRENCIES,
   SET_CURRENCY,
+  ADD_PRODUCT,
+  REMOVE_PRODUCT,
 } from './actions';
 import { Store, ICurrency, IProduct, IPrice } from './types';
 
@@ -24,8 +26,10 @@ const initialState: Store = {
     gallery: [],
     category: '',
   },
-  currency: { label: '', symbol: '' },
+  currency: { label: 'USD', symbol: '$' },
   currencies: [],
+  cart: [],
+  total: 0,
 };
 
 function productsReducer(state: Store = initialState, action: ActionTypes) {
@@ -52,6 +56,19 @@ function productsReducer(state: Store = initialState, action: ActionTypes) {
       return {
         ...state,
         currency: action.payload,
+      };
+
+    case ADD_PRODUCT:
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
+      };
+
+    case REMOVE_PRODUCT:
+      console.log(action.payload.id);
+      return {
+        ...state,
+        cart: state.cart.filter((p) => p.id !== action.payload.id),
       };
     default:
       return state;

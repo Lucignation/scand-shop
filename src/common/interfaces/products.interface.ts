@@ -30,6 +30,6 @@ export interface IPrice {
 }
 
 export interface ICurrency {
-  label?: string;
-  symbol?: string;
+  label: string;
+  symbol: string;
 }

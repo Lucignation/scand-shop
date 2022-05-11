@@ -1,0 +1,15 @@
+.primary-btn {
+  padding: 16px 32px;
+  background: #ffffff;
+  border: 1px solid #1d1f22;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.secondary-btn {
+  padding: 16px 32px;
+  background: #5ece7b;
+  box-sizing: border-box;
+  text-align: center;
+  color: #fff;
+}
